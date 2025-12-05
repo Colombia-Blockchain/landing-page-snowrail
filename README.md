@@ -9,7 +9,7 @@
 <img src="https://img.shields.io/badge/Three.js-0.181-000000?style=for-the-badge&logo=three.js&logoColor=white" alt="Three.js" />
 
 **One API call. Cryptographically verified treasury management.**  
-Automate payments, swaps, and yield farming with zero-trust architecture.
+Automate payments, swaps, and yield farming with zero-trust architecture on Avalanche.
 
 [Live Demo](https://snowrail.io) · [Report Bug](https://github.com/Colombia-Blockchain/landing-page-snowrail/issues) · [Request Feature](https://github.com/Colombia-Blockchain/landing-page-snowrail/issues)
 
@@ -17,21 +17,114 @@ Automate payments, swaps, and yield farming with zero-trust architecture.
 
 ---
 
+## 🎯 About SnowRail
+
+**SnowRail** is a next-generation autonomous treasury orchestration platform built on **Avalanche (AVAX)** blockchain. It revolutionizes how organizations manage their digital assets through a single, powerful API that handles complex treasury operations with cryptographic verification and zero-trust security.
+
+### 🔥 What Makes SnowRail Special?
+
+SnowRail eliminates the complexity of managing corporate treasuries in the DeFi ecosystem. Instead of juggling multiple platforms, protocols, and manual processes, organizations can automate their entire treasury workflow through one unified interface.
+
+**Key Capabilities:**
+
+- **🔐 Zero-Trust Architecture**: Every transaction is cryptographically verified with multi-signature support
+- **⚡ Lightning Fast**: 30-second settlement time on Avalanche's high-performance subnet
+- **💰 Cost-Effective**: Only 0.2% fee structure, dramatically lower than traditional solutions
+- **🤖 Fully Automated**: Set rules once, let SnowRail execute payments, swaps, and yield strategies
+- **🔗 Multi-Protocol**: Seamlessly interact with DEXs, lending protocols, and payment rails
+- **📊 Real-Time Analytics**: Complete visibility into treasury performance and transaction history
+
+### 🌐 Built on Avalanche Ecosystem
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/Avalanche-E84142?style=for-the-badge&logo=avalanche&logoColor=white" alt="Avalanche" />
+<img src="https://img.shields.io/badge/Subnet-C_Chain-red?style=for-the-badge" alt="C-Chain" />
+<img src="https://img.shields.io/badge/Smart_Contracts-Solidity-363636?style=for-the-badge&logo=ethereum&logoColor=white" alt="Solidity" />
+<img src="https://img.shields.io/badge/Web3-Enabled-F16822?style=for-the-badge&logo=web3.js&logoColor=white" alt="Web3" />
+
+</div>
+
+**Powered by Avalanche (AVAX)**: SnowRail leverages Avalanche's revolutionary consensus protocol to deliver sub-second finality and institutional-grade security. Built specifically for the Avalanche C-Chain and compatible with the entire Avalanche DeFi ecosystem.
+
+**X402 Protocol Integration**: SnowRail implements the X402 cross-chain messaging protocol, enabling seamless asset transfers and communication between Avalanche subnets and external blockchain networks.
+
+### 🏗️ Technical Architecture
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    SnowRail API Layer                   │
+│         (REST API, WebSocket, GraphQL Endpoints)        │
+└────────────────────┬────────────────────────────────────┘
+                     │
+┌────────────────────┴────────────────────────────────────┐
+│              Treasury Orchestration Engine              │
+│   • Payment Automation  • Swap Execution                │
+│   • Yield Optimization  • Multi-sig Management          │
+└────────────────────┬────────────────────────────────────┘
+                     │
+┌────────────────────┴────────────────────────────────────┐
+│              Avalanche C-Chain & Subnets                │
+│   • Smart Contracts  • DEX Integration                  │
+│   • Lending Protocols • Cross-chain Bridges             │
+└─────────────────────────────────────────────────────────┘
+```
+
+### 🎨 Use Cases
+
+1. **Corporate Treasury Management**
+   - Automated payroll in stablecoins or native tokens
+   - Multi-currency expense management
+   - Real-time cash flow optimization
+
+2. **DeFi Protocol Operations**
+   - Automated liquidity provision and rebalancing
+   - Yield farming strategy execution
+   - Protocol-owned liquidity management
+
+3. **DAO Treasury Automation**
+   - On-chain governance execution
+   - Automated grant distributions
+   - Treasury diversification strategies
+
+4. **Cross-Chain Operations**
+   - Bridge asset transfers via X402 protocol
+   - Multi-chain treasury coordination
+   - Subnet-to-subnet settlements
+
+---
+
 ## 🚀 Features
 
-- **⚡ Lightning Fast**: Optimized build with code splitting (3s build time)
+### Platform Features
+
+- **⚡ Lightning Fast Settlement**: 30-second finality powered by Avalanche consensus
+- **🔐 Zero-Trust Security**: Multi-sig support with cryptographic transaction verification
+- **💰 Cost-Effective**: 0.2% fee structure, 90% lower than traditional treasury solutions
+- **🤖 Fully Automated**: One-time setup, continuous autonomous execution
+- **📊 Real-Time Analytics**: Complete visibility into treasury performance
+- **🌐 Multi-Protocol**: Seamless integration with 10+ DeFi protocols on Avalanche
+- **🔄 Cross-Chain Ready**: X402 protocol enables subnet and cross-chain operations
+- **100% Uptime**: Redundant infrastructure across multiple Avalanche validators
+
+### Landing Page Features
+
+- **⚡ Blazing Fast**: Optimized build with code splitting (3s build time)
 - **🎨 Modern UI/UX**: Beautiful glassmorphism design with smooth animations
-- **📱 Fully Responsive**: Works seamlessly on all devices
-- **🌐 3D Particle Effects**: Interactive Three.js background
+- **📱 Fully Responsive**: Works seamlessly on all devices (mobile-first design)
+- **🌐 3D Particle Effects**: Interactive Three.js background with Avalanche theme
 - **💳 Multi-Payment Support**: Card, Bank, and Crypto payment integrations
-- **🔐 Web3 Ready**: MetaMask, WalletConnect, Core, and Rabby wallet support
+- **🔐 Web3 Ready**: Core, MetaMask, WalletConnect, and Rabby wallet support
 - **⚡ Optimized Bundle**: 72% size reduction with gzip (355KB total)
 - **🎭 Framer Motion**: Smooth, professional animations throughout
+- **🎯 SEO Optimized**: Meta tags, structured data, and performance optimized
 
 ---
 
 ## 📋 Table of Contents
 
+- [About SnowRail](#-about-snowrail)
+- [Ecosystem Integrations](#-ecosystem-integrations)
 - [Tech Stack](#-tech-stack)
 - [Getting Started](#-getting-started)
 - [Project Structure](#-project-structure)
@@ -43,7 +136,82 @@ Automate payments, swaps, and yield farming with zero-trust architecture.
 
 ---
 
+## 🌟 Ecosystem Integrations
+
+SnowRail integrates deeply with the Avalanche ecosystem and cross-chain infrastructure:
+
+### Avalanche Network
+
+<div align="center">
+<img src="https://img.shields.io/badge/Avalanche-E84142?style=for-the-badge&logo=avalanche&logoColor=white" alt="Avalanche" />
+</div>
+
+**Why Avalanche?**
+- ⚡ **Sub-second finality** - Transactions confirmed in under 1 second
+- 🔥 **High throughput** - 4,500+ transactions per second
+- 💰 **Low fees** - Typical transaction costs under $0.01
+- 🏗️ **Subnet architecture** - Customizable, application-specific blockchains
+- ♻️ **Eco-friendly** - Proof of Stake consensus with minimal energy consumption
+- 🔗 **EVM compatible** - Full Ethereum tooling and smart contract support
+
+### Core Technologies
+
+| Technology | Description | Role in SnowRail |
+|------------|-------------|------------------|
+| **🏔️ Avalanche C-Chain** | EVM-compatible blockchain | Primary execution layer for smart contracts |
+| **⚡ X402 Protocol** | Cross-chain messaging | Enables subnet-to-subnet and cross-chain operations |
+| **🔐 Core Wallet** | Native Avalanche wallet | Primary wallet integration for AVAX ecosystem |
+| **🌉 Avalanche Bridge** | Asset bridge | Facilitates cross-chain asset transfers |
+| **📊 Pangolin / Trader Joe** | DEX Aggregators | Automated swap execution and liquidity |
+| **🏦 Benqi / Aave** | Lending Protocols | Yield optimization and collateral management |
+| **🔮 Chainlink** | Oracle Network | Real-time price feeds and off-chain data |
+| **🛡️ Multi-sig Wallets** | Gnosis Safe on Avalanche | Enhanced security for treasury operations |
+
+### X402 Protocol Deep Dive
+
+**X402** is SnowRail's cross-chain messaging backbone, enabling:
+
+- 🔄 **Subnet Communication**: Native messaging between Avalanche subnets
+- 🌐 **Cross-chain Bridges**: Secure asset transfers to/from external chains
+- 📡 **Event Monitoring**: Real-time listening for cross-chain events
+- 🔐 **Cryptographic Verification**: Every message is cryptographically signed
+- ⚡ **Low Latency**: Optimized for high-frequency trading and settlements
+
+### Supported Wallets
+
+<div align="center">
+
+| Wallet | Logo | Support |
+|--------|------|---------|
+| **Core** | <img src="https://img.shields.io/badge/Core-Wallet-FF6B35?style=flat-square" /> | ✅ Native Integration |
+| **MetaMask** | <img src="https://img.shields.io/badge/MetaMask-E2761B?style=flat-square&logo=metamask&logoColor=white" /> | ✅ Full Support |
+| **Rabby** | <img src="https://img.shields.io/badge/Rabby-Wallet-7C3AED?style=flat-square" /> | ✅ Full Support |
+| **WalletConnect** | <img src="https://img.shields.io/badge/WalletConnect-3B99FC?style=flat-square&logo=walletconnect&logoColor=white" /> | ✅ Bridge Support |
+
+</div>
+
+### DeFi Protocol Integrations
+
+SnowRail seamlessly integrates with major Avalanche DeFi protocols:
+
+- **📈 Trader Joe** - Automated liquidity provision and yield farming
+- **🥞 Pangolin** - DEX aggregation and best price routing  
+- **🏦 Benqi** - Lending, borrowing, and staking operations
+- **🌊 Aave (Avalanche)** - Advanced lending strategies
+- **💎 Platypus Finance** - Stablecoin swaps with minimal slippage
+- **🔥 Yield Yak** - Auto-compounding yield optimizer integration
+
+---
+
 ## 🛠️ Tech Stack
+
+### Blockchain Infrastructure
+- **Avalanche (AVAX)** - Layer 1 blockchain platform
+- **C-Chain** - EVM-compatible smart contract execution
+- **X402 Protocol** - Cross-chain messaging and asset transfers
+- **Avalanche Subnets** - Customizable blockchain networks
+- **Web3.js / Ethers.js** - Blockchain interaction libraries
+- **MetaMask, Core Wallet** - Web3 wallet integration
 
 ### Frontend
 - **React 19.2.1** - UI framework with latest features
@@ -62,6 +230,12 @@ Automate payments, swaps, and yield farming with zero-trust architecture.
 - **Autoprefixer** - CSS vendor prefixing
 - **ESLint** - Code linting
 - **TypeScript** - Static type checking
+
+### Blockchain Development
+- **Solidity** - Smart contract development
+- **Hardhat / Foundry** - Smart contract testing and deployment
+- **OpenZeppelin** - Secure smart contract libraries
+- **Chainlink** - Decentralized oracles for price feeds
 
 ---
 
@@ -302,12 +476,27 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
+### Frontend & UI
 - [React](https://react.dev/) - UI framework
 - [Vite](https://vitejs.dev/) - Build tool
 - [Tailwind CSS](https://tailwindcss.com/) - CSS framework
 - [Three.js](https://threejs.org/) - 3D graphics library
 - [Framer Motion](https://www.framer.com/motion/) - Animation library
 - [Lucide](https://lucide.dev/) - Icon library
+
+### Blockchain & Web3
+- [Avalanche](https://www.avax.network/) - High-performance blockchain platform
+- [Core Wallet](https://core.app/) - Avalanche native wallet
+- [MetaMask](https://metamask.io/) - Ethereum wallet
+- [WalletConnect](https://walletconnect.com/) - Wallet connection protocol
+- [Web3.js](https://web3js.org/) - Ethereum JavaScript API
+- [Ethers.js](https://docs.ethers.org/) - Ethereum library
+
+### Infrastructure & Protocols
+- **X402 Protocol** - Cross-chain messaging standard
+- [Avalanche Subnets](https://docs.avax.network/subnets) - Custom blockchain networks
+- [Chainlink](https://chain.link/) - Decentralized oracle network
+- [OpenZeppelin](https://openzeppelin.com/) - Smart contract security
 
 ---
 
