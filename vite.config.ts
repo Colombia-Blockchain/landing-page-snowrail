@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
     return {
       server: {
         port: 3000,
-        host: '0.0.0.0',
+        host: 'localhost',
       },
       plugins: [react()],
       define: {
@@ -18,6 +18,18 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      build: {
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              'react-vendor': ['react', 'react-dom'],
+              'three-vendor': ['three', '@react-three/fiber'],
+              'animation-vendor': ['framer-motion'],
+            }
+          }
+        },
+        chunkSizeWarningLimit: 1000,
       }
     };
 });
