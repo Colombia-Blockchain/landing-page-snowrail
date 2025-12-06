@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
           {/* Primary Button with Border Beam */}
-          <a href="https://docs.snowrail.io" target="_blank" rel="noopener noreferrer" className="relative group cursor-pointer">
+          <a href="https://github.com/Colombia-Blockchain/SnowRail" target="_blank" rel="noopener noreferrer" className="relative group cursor-pointer">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-electric-blue to-purple-600 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
             <button className="relative flex items-center gap-3 px-8 py-4 bg-navy-900 rounded-full leading-none overflow-hidden">
               <span className="absolute inset-0 rounded-full border border-white/10"></span>
