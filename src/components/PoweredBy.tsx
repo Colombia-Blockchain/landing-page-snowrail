@@ -7,22 +7,11 @@ const PoweredBy: React.FC = () => {
       name: 'Avalanche',
       description: 'High-Performance Blockchain',
       icon: (
-        <svg className="w-16 h-16" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Red Circle Background */}
-          <circle cx="100" cy="100" r="100" fill="#E84142"/>
-          
-          {/* Large Left Shape - Parallelogram tilted */}
-          <path 
-            d="M 48 78 L 83 78 L 68 128 L 33 128 Z" 
-            fill="white"
-          />
-          
-          {/* Small Right Triangle */}
-          <path 
-            d="M 105 98 L 138 98 L 121.5 128 Z" 
-            fill="white"
-          />
-        </svg>
+        <img 
+          src="https://cryptologos.cc/logos/avalanche-avax-logo.svg" 
+          alt="Avalanche Logo" 
+          className="w-16 h-16"
+        />
       ),
     },
     {
