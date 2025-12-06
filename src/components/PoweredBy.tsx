@@ -11,16 +11,15 @@ const PoweredBy: React.FC = () => {
           {/* Red Circle Background */}
           <circle cx="100" cy="100" r="100" fill="#E84142"/>
           
-          {/* Large Left Triangle (Parallelogram-like shape tilted) */}
+          {/* Large Left Parallelogram - leaning right */}
           <path 
-            d="M 60 65 L 105 65 L 85 135 L 40 135 Z" 
+            d="M 50 75 L 90 75 L 75 130 L 35 130 Z" 
             fill="white"
-            transform="rotate(-15 72.5 100)"
           />
           
           {/* Small Right Triangle */}
           <path 
-            d="M 120 95 L 155 95 L 137.5 135 L 102.5 135 Z" 
+            d="M 110 95 L 145 95 L 127.5 130 Z" 
             fill="white"
           />
         </svg>
