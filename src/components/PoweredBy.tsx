@@ -18,35 +18,22 @@ const PoweredBy: React.FC = () => {
       name: 'Rail',
       description: 'Infrastructure Layer',
       icon: (
-        <svg className="w-16 h-16" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="256" height="256" rx="128" fill="#00D4FF"/>
-          <path d="M80 80H176V96H80V80Z" fill="white"/>
-          <path d="M80 120H176V136H80V120Z" fill="white"/>
-          <path d="M80 160H176V176H80V160Z" fill="white"/>
-          <circle cx="96" cy="88" r="6" fill="#00D4FF"/>
-          <circle cx="96" cy="128" r="6" fill="#00D4FF"/>
-          <circle cx="96" cy="168" r="6" fill="#00D4FF"/>
-          <circle cx="160" cy="88" r="6" fill="#00D4FF"/>
-          <circle cx="160" cy="128" r="6" fill="#00D4FF"/>
-          <circle cx="160" cy="168" r="6" fill="#00D4FF"/>
-        </svg>
+        <img 
+          src="https://cdn.prod.website-files.com/6797f43699f81adabf44dd7d/6797f43699f81adabf44de14_rail.svg" 
+          alt="Rail Logo" 
+          className="w-16 h-16"
+        />
       ),
     },
     {
       name: 'Ultravioleta',
       description: 'Protocol Partner',
       icon: (
-        <svg className="w-16 h-16" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="ultraviolet-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#8B5CF6" />
-              <stop offset="100%" stopColor="#EC4899" />
-            </linearGradient>
-          </defs>
-          <rect width="256" height="256" rx="128" fill="url(#ultraviolet-gradient)"/>
-          <path d="M128 50L178.885 103.431L128 156.862L77.1154 103.431L128 50Z" fill="white" fillOpacity="0.9"/>
-          <path d="M128 100L178.885 153.431L128 206.862L77.1154 153.431L128 100Z" fill="white" fillOpacity="0.6"/>
-        </svg>
+        <img 
+          src="https://ultravioletadao.xyz/uvd.png" 
+          alt="Ultravioleta Logo" 
+          className="w-16 h-16 rounded-full"
+        />
       ),
     },
   ];
