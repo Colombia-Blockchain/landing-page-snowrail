@@ -10,7 +10,7 @@ const PoweredBy: React.FC = () => {
         <img 
           src="https://cryptologos.cc/logos/avalanche-avax-logo.svg" 
           alt="Avalanche Logo" 
-          className="w-16 h-16"
+          className="h-12 w-auto object-contain"
         />
       ),
     },
