@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import PoweredBy from './components/PoweredBy';
 import ProblemSolution from './components/ProblemSolution';
 import FlowDiagram from './components/FlowDiagram';
 import ComparisonTable from './components/ComparisonTable';
@@ -27,7 +26,6 @@ const App: React.FC = () => {
         <Navbar />
         <main>
           <Hero />
-          <PoweredBy />
           <TechMarquee />
           <ProblemSolution />
           <FlowDiagram />
