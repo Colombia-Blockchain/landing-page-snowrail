@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Play, BookOpen } from 'lucide-react';
+import { Play, ExternalLink } from 'lucide-react';
 
 const letterVariants = {
   hidden: { y: "100%" },
@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-electric-blue animate-pulse" />
-          <span className="text-sm text-electric-blue font-medium tracking-wide">SNOWRAIL V2 LIVE</span>
+          <span className="text-sm text-electric-blue font-medium tracking-wide">SNOWRAIL LIVE</span>
         </motion.div>
 
         {/* Title Clip Animation */}
@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
           {/* Primary Button with Border Beam */}
-          <a href="https://github.com/Colombia-Blockchain/SnowRail" target="_blank" rel="noopener noreferrer" className="relative group cursor-pointer">
+          <a href="https://app.snowrail.xyz" target="_blank" rel="noopener noreferrer" className="relative group cursor-pointer">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-electric-blue to-purple-600 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
             <button className="relative flex items-center gap-3 px-8 py-4 bg-navy-900 rounded-full leading-none overflow-hidden">
               <span className="absolute inset-0 rounded-full border border-white/10"></span>
@@ -84,8 +84,8 @@ const Hero: React.FC = () => {
                 <span className="absolute top-0 left-1/2 w-[40%] h-[100%] -translate-x-1/2 bg-gradient-to-r from-transparent via-electric-blue/50 to-transparent rotate-[0deg] origin-bottom animate-[spin_4s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity" style={{ transformOrigin: 'center center' }}></span>
               </span>
               
-              <BookOpen className="w-5 h-5 text-electric-blue" />
-              <span className="text-white font-semibold">Documentation</span>
+              <ExternalLink className="w-5 h-5 text-electric-blue" />
+              <span className="text-white font-semibold">Launch App</span>
             </button>
           </a>
 
