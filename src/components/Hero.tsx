@@ -1,6 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Play, ExternalLink } from 'lucide-react';
+
+const DEFAULT_DEMO_VIDEO_URL = 'https://youtu.be/GjxYOmiMrRg';
+
+const buildYoutubeEmbedUrl = (url: string) => {
+  try {
+    const parsedUrl = new URL(url);
+    const host = parsedUrl.hostname.replace(/^www\./, '');
+
+    if (host === 'youtu.be') {
+      const videoId = parsedUrl.pathname.replace('/', '');
+      if (videoId) {
+        return `https://www.youtube.com/embed/${videoId}`;
+      }
+    }
+
+    if (host.endsWith('youtube.com')) {
+      if (parsedUrl.pathname.startsWith('/watch')) {
+        const videoId = parsedUrl.searchParams.get('v');
+        if (videoId) {
+          return `https://www.youtube.com/embed/${videoId}`;
+        }
+      }
+
+      if (parsedUrl.pathname.startsWith('/embed/')) {
+        return `${parsedUrl.origin}${parsedUrl.pathname}`;
+      }
+    }
+  } catch (error) {
+    console.warn('Invalid demo video URL provided. Falling back to original string.');
+  }
+
+  return url;
+};
+
+const rawDemoVideoUrl = import.meta.env.VITE_DEMO_VIDEO_URL ?? DEFAULT_DEMO_VIDEO_URL;
+const demoVideoEmbedUrl = (() => {
+  const embedUrl = buildYoutubeEmbedUrl(rawDemoVideoUrl);
+  if (embedUrl.includes('autoplay=')) {
+    return embedUrl;
+  }
+  const separator = embedUrl.includes('?') ? '&' : '?';
+  return `${embedUrl}${separator}autoplay=1`;
+})();
 
 const letterVariants = {
   hidden: { y: "100%" },
@@ -16,6 +59,7 @@ const letterVariants = {
 
 const Hero: React.FC = () => {
   const title = "Autonomous Treasury Orchestrator";
+  const [showDemo, setShowDemo] = useState(false);
   
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8">
@@ -90,7 +134,10 @@ const Hero: React.FC = () => {
           </a>
 
           {/* Secondary Button */}
-          <button className="flex items-center gap-3 px-8 py-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 hover:scale-105 transition-all duration-300 backdrop-blur-sm group">
+          <button
+            onClick={() => setShowDemo(true)}
+            className="flex items-center gap-3 px-8 py-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 hover:scale-105 transition-all duration-300 backdrop-blur-sm group"
+          >
             <span className="text-white font-semibold">Watch Demo</span>
             <Play className="w-4 h-4 fill-white text-white group-hover:translate-x-1 transition-transform" />
           </button>
@@ -117,6 +164,31 @@ const Hero: React.FC = () => {
            ))}
         </div>
       </div>
+
+      {showDemo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+          <div
+            className="absolute inset-0"
+            onClick={() => setShowDemo(false)}
+            aria-hidden="true"
+          />
+          <div className="relative z-10 w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+            <iframe
+              className="w-full h-full"
+              src={demoVideoEmbedUrl}
+              title="SnowRail Demo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+            <button
+              onClick={() => setShowDemo(false)}
+              className="absolute top-3 right-3 bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-full text-sm font-semibold transition"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
