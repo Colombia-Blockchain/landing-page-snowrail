@@ -74,14 +74,14 @@ const PoweredBy: React.FC = () => {
               {/* Card Content */}
               <div className="relative glass-panel p-8 rounded-2xl border border-white/10 hover:border-electric-blue/50 transition-all duration-300 transform hover:-translate-y-2 h-full flex flex-col min-h-[280px]">
                 {/* Logo Container */}
-                <div className="flex justify-center mb-6 flex-shrink-0">
-                  <div className="relative h-16 w-16">
+                <div className="flex justify-center items-center mb-6 flex-shrink-0 min-h-[64px]">
+                  <div className="relative flex items-center justify-center">
                     {/* Glow Effect */}
-                    <div className="absolute inset-0 blur-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute inset-0 blur-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                       {partner.icon}
                     </div>
                     {/* Actual Logo */}
-                    <div className="relative">
+                    <div className="relative flex items-center justify-center">
                       {partner.icon}
                     </div>
                   </div>
