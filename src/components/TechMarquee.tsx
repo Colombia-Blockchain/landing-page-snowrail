@@ -1,11 +1,24 @@
-import React from 'react';
-import { Box, Code2, Database, Globe, Lock, Cpu, Server } from 'lucide-react';
+import React from 'react'
+import {
+  Blocks,
+  Box,
+  Code2,
+  Database,
+  Globe,
+  Lock,
+  Cpu,
+  Server,
+  ScanLine,
+  Cable,
+} from 'lucide-react'
 
-type IconComponent = React.ComponentType<{ className?: string }>;
+type IconComponent = React.ComponentType<{ className?: string }>
 
 const GenericIcon: React.FC<{ className?: string }> = ({ className }) => (
   <div
-    className={`w-10 h-10 rounded-full border border-electric-blue/40 bg-electric-blue/10 flex items-center justify-center text-electric-blue/80 ${className ?? ''}`}
+    className={`w-10 h-10 rounded-full border border-electric-blue/40 bg-electric-blue/10 flex items-center justify-center text-electric-blue/80 ${
+      className ?? ''
+    }`}
   >
     <svg
       className="w-5 h-5"
@@ -22,9 +35,12 @@ const GenericIcon: React.FC<{ className?: string }> = ({ className }) => (
       />
     </svg>
   </div>
-);
+)
 
 const techs: { name: string; icon: IconComponent }[] = [
+  { name: 'Avalanche', icon: Blocks },
+  { name: 'Rail', icon: Cable },
+  { name: 'UltravioletaDAO Facilitator', icon: ScanLine },
   { name: 'Typescript', icon: Code2 },
   { name: 'Solidity', icon: Box },
   { name: 'Arweave', icon: Database },
@@ -32,14 +48,9 @@ const techs: { name: string; icon: IconComponent }[] = [
   { name: 'EIP-3009', icon: Lock },
   { name: 'AI Agents', icon: Cpu },
   { name: 'Node.js', icon: Server },
-];
+]
 
-const partners = ['Avalanche', 'Rail', 'Ultravioleta'].map((name) => ({
-  name,
-  icon: GenericIcon,
-}));
-
-const marqueeItems = [...techs, ...partners];
+const marqueeItems = [...techs]
 
 const TechMarquee: React.FC = () => {
   return (
@@ -50,22 +61,26 @@ const TechMarquee: React.FC = () => {
 
       <div className="flex w-full overflow-hidden">
         <div className="flex animate-marquee whitespace-nowrap gap-16 items-center">
-          {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={`${item.name}-${i}`}
-                className="flex items-center gap-3 text-gray-500 hover:text-white transition-colors duration-300 group cursor-default"
-              >
-                <Icon className="w-8 h-8 group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-lg font-bold tracking-tight">{item.name}</span>
-              </div>
-            );
-          })}
+          {[...marqueeItems, ...marqueeItems, ...marqueeItems].map(
+            (item, i) => {
+              const Icon = item.icon
+              return (
+                <div
+                  key={`${item.name}-${i}`}
+                  className="flex items-center gap-3 text-gray-500 hover:text-white transition-colors duration-300 group cursor-default"
+                >
+                  <Icon className="w-8 h-8 group-hover:scale-110 transition-transform duration-300" />
+                  <span className="text-lg font-bold tracking-tight">
+                    {item.name}
+                  </span>
+                </div>
+              )
+            },
+          )}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TechMarquee;
+export default TechMarquee
