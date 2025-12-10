@@ -1,28 +1,61 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 type NavItem =
-  | { label: string; target: string }
-  | { label: string; href: string };
+  | { label: string; target: string; type: 'scroll' }
+  | { label: string; path: string; type: 'link' }
+  | { label: string; href: string; type: 'external' };
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === '/';
 
   const navItems: NavItem[] = [
-    { label: 'Solutions', target: 'solutions' },
-    { label: 'Developers', target: 'developers' },
-    { label: 'Pricing', target: 'pricing' },
-    { label: 'Documentation', href: 'https://github.com/Colombia-Blockchain/SnowRail' },
+    { label: 'Solutions', target: 'solutions', type: 'scroll' },
+    { label: 'Developers', target: 'developers', type: 'scroll' },
+    { label: 'Pricing', target: 'pricing', type: 'scroll' },
+    { label: 'Documentation', path: '/docs', type: 'link' },
   ];
 
-  const handleScroll = (e: React.MouseEvent<HTMLElement>, id: string) => {
+  const handleNavigation = (e: React.MouseEvent<HTMLElement>, item: NavItem) => {
     e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
     setIsOpen(false);
+
+    if (item.type === 'scroll') {
+      if (isHomePage) {
+        const element = document.getElementById(item.target);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        navigate(`/#${item.target}`);
+        // Allow time for navigation before scrolling
+        setTimeout(() => {
+          const element = document.getElementById(item.target);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    } else if (item.type === 'link') {
+      navigate(item.path);
+      window.scrollTo(0, 0);
+    } else if (item.type === 'external') {
+      window.open(item.href, '_blank', 'noopener noreferrer');
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (isHomePage) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+      window.scrollTo(0, 0);
+    }
   };
 
   return (
@@ -31,7 +64,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center space-x-2 cursor-pointer group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div className="flex-shrink-0 flex items-center space-x-2 cursor-pointer group" onClick={handleLogoClick}>
             <img src="/snowrail_logo.png" alt="SnowRail Logo" className="h-10 w-auto" />
             <span className="font-bold text-xl tracking-tight">SnowRail</span>
           </div>
@@ -39,22 +72,14 @@ const Navbar: React.FC = () => {
           {/* Desktop Nav */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              {navItems.map((item) => 'href' in item ? (
+              {navItems.map((item) => (
                 <a
                   key={item.label}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white hover:scale-105 transition-all duration-200 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <a
-                  key={item.label}
-                  href={`#${item.target}`}
-                  onClick={(e) => handleScroll(e, item.target)}
-                  className="text-gray-300 hover:text-white hover:scale-105 transition-all duration-200 px-3 py-2 rounded-md text-sm font-medium"
+                  href={item.type === 'external' ? item.href : item.type === 'link' ? item.path : `#${item.target}`}
+                  onClick={(e) => handleNavigation(e, item)}
+                  className={`text-gray-300 hover:text-white hover:scale-105 transition-all duration-200 px-3 py-2 rounded-md text-sm font-medium cursor-pointer
+                    ${item.type === 'link' && location.pathname === item.path ? 'text-white font-semibold' : ''}
+                  `}
                 >
                   {item.label}
                 </a>
@@ -104,34 +129,21 @@ const Navbar: React.FC = () => {
             className="md:hidden bg-navy-900 border-b border-white/10 overflow-hidden"
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {navItems.map((item, i) =>
-                'href' in item ? (
-                  <motion.a
-                    key={item.label}
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: i * 0.1 }}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-300 hover:text-white block px-3 py-4 rounded-md text-base font-medium border-b border-white/5 last:border-0"
-                  >
-                    {item.label}
-                  </motion.a>
-                ) : (
-                  <motion.a
-                    key={item.label}
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: i * 0.1 }}
-                    href={`#${item.target}`}
-                    onClick={(e) => handleScroll(e, item.target)}
-                    className="text-gray-300 hover:text-white block px-3 py-4 rounded-md text-base font-medium border-b border-white/5 last:border-0"
-                  >
-                    {item.label}
-                  </motion.a>
-                )
-              )}
+              {navItems.map((item, i) => (
+                <motion.a
+                  key={item.label}
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: i * 0.1 }}
+                  href={item.type === 'external' ? item.href : item.type === 'link' ? item.path : `#${item.target}`}
+                  onClick={(e) => handleNavigation(e, item)}
+                  className={`text-gray-300 hover:text-white block px-3 py-4 rounded-md text-base font-medium border-b border-white/5 last:border-0
+                    ${item.type === 'link' && location.pathname === item.path ? 'text-white bg-white/5' : ''}
+                  `}
+                >
+                  {item.label}
+                </motion.a>
+              ))}
             </div>
           </motion.div>
         )}
