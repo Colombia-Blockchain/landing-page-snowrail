@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Snowflake } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 type NavItem =
   | { label: string; target: string }
@@ -32,9 +32,7 @@ const Navbar: React.FC = () => {
           
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center space-x-2 cursor-pointer group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="p-2 bg-gradient-to-tr from-snow-red to-purple-600 rounded-lg group-hover:shadow-[0_0_20px_rgba(232,65,66,0.5)] transition-shadow duration-300">
-              <Snowflake className="h-6 w-6 text-white" />
-            </div>
+            <img src="/snowrail_logo.png" alt="SnowRail Logo" className="h-10 w-auto" />
             <span className="font-bold text-xl tracking-tight">SnowRail</span>
           </div>
 
