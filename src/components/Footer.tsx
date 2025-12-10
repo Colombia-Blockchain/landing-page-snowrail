@@ -1,5 +1,5 @@
 import React from 'react';
-import { Twitter, Github, Linkedin, Snowflake } from 'lucide-react';
+import { Twitter, Github, Linkedin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
           
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
-              <Snowflake className="text-electric-blue" />
+              <img src="/snowrail_logo.png" alt="SnowRail Logo" className="h-8 w-auto" />
               <span className="font-bold text-xl">SnowRail</span>
             </div>
             <p className="text-gray-500 text-sm leading-relaxed">
